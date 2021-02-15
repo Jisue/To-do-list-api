@@ -12,18 +12,18 @@ To-do-list's RESTfull API
 - get : 
     - /todos	프론트 파일을 제공, 전체 목록을 불러옴
     - /trashs	휴지통 불러옴
-    - /edited 	수정 완료 페이지
-    - /editing 	수정 페이지 불러옴
     - /todos/:id id값으로 특정 todo를 찾음
 - post
     - /todos	list 목록을 추가
 - put
     - /todos/:id 	id값으로 특정 list 수정
-    - /todos/:id/:status  상태 수정
-    - /todos/:id/on    	보드on off 수정
-    - /trashs/:id/on
+        - status : Edit === 목록 값 수정
+        - status : Failed === 실패 처리
+        - status : Done === 완료 처리
+    - /trashs/:id   id 값으로 특정 데이터 복원 처리
 - delete
-    - /trashs/:id   id값으로 특정 list 제거
+    - /trashs/:id   id값으로 특정 list 영구삭제
+    - /todos/:id    id값으로 특정 list 삭제처리
 
 
 # 실행
