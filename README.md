@@ -8,7 +8,6 @@ To-do-list's RESTfull API
     - GET,POST,PUT,DELETE
     - 리소스 : Todos
 
-
 ## API 설계
 - get : 
     - /todos	프론트 파일을 제공, 전체 목록을 불러옴
@@ -20,10 +19,15 @@ To-do-list's RESTfull API
     - /todos	list 목록을 추가
 - put
     - /todos/:id 	id값으로 특정 list 수정
-    - /todos/:id/status  상태 수정
+    - /todos/:id/:status  상태 수정
     - /todos/:id/on    	보드on off 수정
-    - /trashs/:id  id 값으로 특정 휴지통 리스트 수정
     - /trashs/:id/on
 - delete
-    - /todos/:id   id값으로 특정 list 제거
+    - /trashs/:id   id값으로 특정 list 제거
 
+
+# 실행
+
+- npm run dev : app.ts 실행
+- npm run build : js파일로 빌드
+- npm start : app.js 실행
