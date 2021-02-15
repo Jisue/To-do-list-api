@@ -18,5 +18,21 @@ export class trashs {
                 return res.json(result);   
             }); 
         })
+
+        router.route('/trashs/:id/on').put((req: Request, res: Response) => {
+            let sql = `CALL UpdateTrashOff(${req.params.id})`;
+            connection.query(sql, function (err: Error, result:any) {
+                if (err) throw err;
+                return res.json(result);
+            }); 
+        })
+
+        router.route('/trashs/:id').delete((req: Request, res: Response) => {
+            let sql = `CALL DeleteList(${req.params.id})`;
+            connection.query(sql, function (err: Error, result:any) {
+                if (err) throw err;
+                return res.json(result);
+            }); 
+        })
     }
 }

@@ -7,17 +7,13 @@ const connection = new DB().connection;
 
 export class edit {   
 
-    public routes(router:Router): void {          
+    public routes(router:Router): any {    
+        
+        let rel:any;
 
-        router.route('/edit').post((req: Request, res: Response) => {
-
-            let sql = `CALL SelectTrash()`;
-                            
-            connection.query(sql, function (err: Error, result:any) {
-                if (err) throw err;
-                return res.json(result);   
-            }); 
-           
+        //목록 수정
+        router.route('/todos/:id').put((req: Request, res: Response) => {
+            
         })
     }
 }

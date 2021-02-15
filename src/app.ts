@@ -28,6 +28,6 @@ const api = new Api().api;
 
 console.log();
 
-api.listen(3000,()=>{
-    console.log('listening 3000');
+api.listen(3001,()=>{
+    console.log('API is listening 3001');
 });
