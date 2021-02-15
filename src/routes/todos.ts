@@ -1,4 +1,3 @@
-import { fail } from 'assert';
 import {Request, Response, Router} from 'express';
 import {DB} from '../config/db';
 
@@ -44,9 +43,9 @@ export class todos {
             });
         })
 
-        router.route('/todos/:id/:status').put((req: Request, res: Response) => {
+        router.route('/todos/:id').put((req: Request, res: Response) => {
 
-            if(req.params.status === 'failed'){
+            if(req.query.status === 'Failed'){
                 let sql = `CALL UpdateStatusFailed(${req.params.id})`;
                 connection.query(sql, function (err: Error, result:any) {
                     if (err) throw err;
@@ -54,17 +53,25 @@ export class todos {
                 }); 
             }
 
-            if(req.params.status === 'done'){
+            if(req.query.status === 'Done'){
                 let sql = `CALL UpdateStatusDone(${req.params.id})`;
                 connection.query(sql, function (err: Error, result:any) {
                     if (err) throw err;
                     return res.json(result);
                 }); 
             }
+            if(req.query.status === 'Edit'){
+                let sql= `CALL to_do_list.UpdateList('${req.params.id}','${req.query.list_name}','${req.query.list_date}','${req.query.list_memo}')`;
+
+                connection.query(sql, function (err: Error, result:any) {
+                    if (err) throw err;
+                    return res.json(result);   
+                }); 
+            }
         })
 
-        router.route('/todos/:id/on').put((req: Request, res: Response) => {
-            let sql = `CALL UpdateTrashOn(${req.params.id})`;
+        router.route('/todos/:id').delete((req: Request, res: Response) => {
+            let sql = `CALL UpdateTrashOff(${req.params.id})`;
             connection.query(sql, function (err: Error, result:any) {
                 if (err) throw err;
                 return res.json(result);
