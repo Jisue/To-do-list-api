@@ -19,10 +19,11 @@ export class trashs {
             }); 
         })
 
-        router.route('/trashs/:id/on').put((req: Request, res: Response) => {
-            let sql = `CALL UpdateTrashOff(${req.params.id})`;
+        router.route('/trashs/:id').put((req: Request, res: Response) => {
+            let sql = `CALL UpdateTrashOn(${req.params.id})`;
             connection.query(sql, function (err: Error, result:any) {
                 if (err) throw err;
+                console.log(result);
                 return res.json(result);
             }); 
         })
