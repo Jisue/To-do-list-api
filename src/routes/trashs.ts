@@ -23,17 +23,31 @@ export class trashs {
             let sql = `CALL UpdateTrashOn(${req.params.id})`;
             connection.query(sql, function (err: Error, result:any) {
                 if (err) throw err;
-                console.log(result);
-                return res.json(result);
+                // console.log(result);
+                // return res.json(result);
             }); 
+
+            let sql2 = `CALL SelectTrash()`;
+            
+            connection.query(sql2, function (err, result) {
+                if (err) throw err;
+                return res.json(result);        
+            });
         })
 
         router.route('/trashs/:id').delete((req: Request, res: Response) => {
             let sql = `CALL DeleteList(${req.params.id})`;
             connection.query(sql, function (err: Error, result:any) {
                 if (err) throw err;
-                return res.json(result);
+                // return res.json(result);
             }); 
+
+            let sql2 = `CALL SelectTrash()`;
+            
+            connection.query(sql2, function (err, result) {
+                if (err) throw err;
+                return res.json(result);        
+            });
         })
     }
 }

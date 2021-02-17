@@ -44,7 +44,7 @@ export class todos {
         })
 
         router.route('/todos/:id').put((req: Request, res: Response) => {
-
+            console.log(req.query);
             if(req.query.status === 'Failed'){
                 let sql = `CALL UpdateStatusFailed(${req.params.id})`;
                 connection.query(sql, function (err: Error, result:any) {
