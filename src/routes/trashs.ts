@@ -29,7 +29,7 @@ export class trashs {
 
             let sql2 = `CALL SelectTrash()`;
             
-            connection.query(sql2, function (err, result) {
+            connection.query(sql2, function (err:Error, result:any) {
                 if (err) throw err;
                 return res.json(result);        
             });
@@ -44,7 +44,7 @@ export class trashs {
 
             let sql2 = `CALL SelectTrash()`;
             
-            connection.query(sql2, function (err, result) {
+            connection.query(sql2, function (err:Error, result:any) {
                 if (err) throw err;
                 return res.json(result);        
             });

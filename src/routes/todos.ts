@@ -29,9 +29,9 @@ export class todos {
         router.route('/todos').post((req: Request, res: Response) => { 
             console.log(req.query);
 
-            let sql1 = `CALL to_do_list.InsertList('${req.query.list_name}','${req.query.list_date}','${req.query.list_memo}')`;
+            let sql1 = `CALL to_do_list.InsertList('${req.query.list_name}','${req.query.list_date}','${req.query.list_memo}','${req.query.list_color}')`;
 
-            connection.query(sql1,function (err, result, fields) {
+            connection.query(sql1,function (err:Error, result):any {
                 if (err) throw err;              
             });
 
@@ -61,7 +61,7 @@ export class todos {
                 }); 
             }
             if(req.query.status === 'Edit'){
-                let sql= `CALL to_do_list.UpdateList('${req.params.id}','${req.query.list_name}','${req.query.list_date}','${req.query.list_memo}')`;
+                let sql= `CALL to_do_list.UpdateList('${req.params.id}','${req.query.list_name}','${req.query.list_date}','${req.query.list_memo}','${req.query.list_color}')`;
 
                 connection.query(sql, function (err: Error, result:any) {
                     if (err) throw err;

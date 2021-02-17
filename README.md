@@ -31,3 +31,7 @@ To-do-list's RESTfull API
 - npm run dev : app.ts 실행
 - npm run build : js파일로 빌드
 - npm start : app.js 실행
+
+# 2021-02-17
+
+- 색상 설정을 위한 sp 변경
