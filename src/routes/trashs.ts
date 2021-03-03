@@ -10,7 +10,7 @@ export class trashs {
     public routes(router:Router): void {  
 
         router.route('/trashs').get((req: Request, res: Response) => {    
-            console.log("selected")
+            console.log("Get Trash")
 
             let sql = `CALL SelectTrash()`;
                         

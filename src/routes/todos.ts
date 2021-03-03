@@ -6,7 +6,9 @@ const connection = new DB().connection;
 export class todos {   
 
     public routes(router:Router): void {   
-        router.route('/todos').get((req: Request, res: Response) => {    
+        router.route('/todos').get((req: Request, res: Response) => {  
+            
+            console.log("Get Todos")
 
             let sql = `CALL SelectListAll()`;
                             
@@ -18,6 +20,8 @@ export class todos {
 
         router.route('/todos/:id').get((req: Request, res: Response) => {  
 
+            console.log("Get Todo : "+req.params.id)
+
             let sql = `CALL SelectList(${req.params.id})`;
     
             connection.query(sql, function (err: Error, result: any) {
@@ -27,6 +31,7 @@ export class todos {
         })
 
         router.route('/todos').post((req: Request, res: Response) => { 
+            console.log("호출됨");
             console.log(req.query);
 
             let sql1 = `CALL to_do_list.InsertList('${req.query.list_name}','${req.query.list_date}','${req.query.list_memo}','${req.query.list_color}')`;

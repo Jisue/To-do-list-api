@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Jisue/To-do-list#readme",
   "devDependencies": {
+    "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
     "@types/mysql": "^2.15.17",
     "@types/node": "^14.14.22",
@@ -35,6 +36,7 @@
     "@types/body-parser": "^1.19.0",
     "@types/date-utils": "^1.2.0",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "date-utils": "^1.2.21",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
