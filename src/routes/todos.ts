@@ -22,7 +22,7 @@ export class todos {
 
             console.log("Get Todo : "+req.params.id)
 
-            let sql = `CALL SelectList(${req.params.id})`;
+            let sql = `CALL SelectListById(${req.params.id})`;
     
             connection.query(sql, function (err: Error, result: any) {
                 if (err) throw err;
@@ -36,7 +36,7 @@ export class todos {
 
             let sql1 = `CALL to_do_list.InsertList('${req.query.list_name}','${req.query.list_date}','${req.query.list_memo}','${req.query.list_color}')`;
 
-            connection.query(sql1,function (err:Error, result):any {
+            connection.query(sql1,function (err:Error, result: any):any {
                 if (err) throw err;       
                 return res.json(result);       
             });

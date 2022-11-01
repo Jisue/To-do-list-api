@@ -3,3 +3,4 @@ dist
 .env
 sp
 .DS_Store
+scripts
